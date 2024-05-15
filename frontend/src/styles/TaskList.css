@@ -1,0 +1,17 @@
+body {
+  margin: 0;
+  font-family: "Arial", sans-serif;
+  background-color: #f4f4f4;
+}
+
+.task-list-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.task-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}

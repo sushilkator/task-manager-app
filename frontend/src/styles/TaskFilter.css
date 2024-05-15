@@ -1,0 +1,27 @@
+body {
+  margin: 0;
+  font-family: "Arial", sans-serif;
+  background-color: #f4f4f4;
+}
+
+.task-filter-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.task-filter {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: #ffffff;
+  width: 200px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s ease;
+}
+
+.task-filter:focus {
+  border-color: #007bff;
+  outline: none;
+}
