@@ -1,12 +1,19 @@
-import React, { useState } from 'react';
-import authService from '../services/authService';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import authService from '../services/authService';
 import '../styles/LoginPage.css';
 
-const LoginPage = () => {
+const LoginPage = ({ setIsAuthenticated }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
+
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        if (token) {
+            navigate('/');
+        }
+    }, [navigate]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -15,6 +22,7 @@ const LoginPage = () => {
             const { data } = await authService.login({ email, password });
             localStorage.setItem('token', data.token);
             authService.setAuthToken(data.token);
+            setIsAuthenticated(true); // Update the authentication state
             navigate('/');
         } catch (error) {
             console.error('Error logging in', error);

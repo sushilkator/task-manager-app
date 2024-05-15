@@ -38,10 +38,18 @@ const HomePage = () => {
 
     return (
         <div className="container">
-            <h1>Task Manager</h1>
-            <TaskForm fetchTasks={fetchTasks} />
-            <TaskFilter statusFilter={statusFilter} setStatusFilter={setStatusFilter} />
-            <TaskList tasks={filteredTasks} fetchTasks={fetchTasks} />
+            <div className="top-bar">
+                <h1 className="header">Task Manager</h1>
+            </div>
+            <div className="content">
+                <div className="left-side">
+                    <TaskForm fetchTasks={fetchTasks} />
+                </div>
+                <div className="right-side">
+                    <TaskFilter statusFilter={statusFilter} setStatusFilter={setStatusFilter} />
+                    <TaskList tasks={filteredTasks} fetchTasks={fetchTasks} />
+                </div>
+            </div>
         </div>
     );
 };
